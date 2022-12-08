@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/output.css" />
+    <title>ChitChat App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      async function initDm() {
+        const cont = document.getElementById("direct");
+        const response = fetch("/otherusers").then((response) =>
+          response.json().then((res) => {
+            res.forEach((user) => {
+              const option = document.createElement("option");
+              option.value = user.username;
+              option.innerHTML = user.username;
+              cont.appendChild(option);
+            });
+          })
+        );
+      }
+    </script>
+  </head>
+  <body onload="initDm()">
+    <div class="flex flex-col items-center gap-10">
+      <header class="flex flex-col items-center">
+        <img src="img/logo.jpeg" width="270" height="70" />
+        <h1
+          style="
+            margin-bottom: -30px;
+            margin-top: 20px;
+            color: var(--dark-color-a);
+          "
+          class="text-5xl"
+        >
+          Select Chat
+        </h1>
+      </header>
+      <main class="join-main w-2/6">
+        <form action="/direct" method="POST">
+          <div class="form-control">
+            <label style="color: var(--light-color-a)" for="direct"
+              >Direct Message</label
+            >
+            <select name="direct" id="direct"></select>
+          </div>
+          <button type="submit" class="btn" value="DM">DM</button>
+        </form>
+        <br /><br />
+        <form action="/chat" method="POST">
+          <div class="form-control">
+            <label style="color: var(--light-color-a)" for="group">Group</label>
+            <select name="group" id="group">
+              <option value="CS411">CS411</option>
+              <option value="Senior Project">Senior Project</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label style="color: var(--light-color-a)" for="channel"
+              >Channel</label
+            >
+            <select name="channel" id="channel">
+              <option value="#Project1">#Project1</option>
+              <option value="#Project2">#Project2</option>
+            </select>
+          </div>
+          <button type="submit" class="btn" value="join">Join</button>
+        </form>
+      </main>
+    </div>
+    <script>
+      $("#group").on("change", function () {
+        $("#channel").html("");
+        console.log($("#group").val());
+        if ($("#group").val() === "CS411") {
+          $("#channel").append('<option value="#Project1">#Project1</option>');
+          $("#channel").append('<option value="#Project2">#Project2</option>');
+        } else if ($("#group").val() === "Senior Project") {
+          $("#channel").append('<option value="#Analysis">#Analysis</option>');
+          $("#channel").append('<option value="#Design">#Design</option>');
+          $("#channel").append(
+            '<option value="#Implementation">#Implementation</option>'
+          );
+          $("#channel").append('<option value="#Back-end">#Back-end</option>');
+          $("#channel").append(
+            '<option value="#Front-end">#Front-end</option>'
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

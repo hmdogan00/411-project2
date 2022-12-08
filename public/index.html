@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/output.css" />
+    <title>ChitChat App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="flex flex-col items-center gap-10">
+      <header class="flex flex-col items-center">
+        <img src="img/logo.jpeg" height="auto" />
+        <h1
+          style="
+            margin-bottom: -30px;
+            margin-top: 20px;
+            color: var(--dark-color-a);
+          "
+          class="text-5xl"
+        >
+          Login
+        </h1>
+      </header>
+      <main class="join-main">
+        <form action="/login" , method="POST">
+          <div class="form-control">
+            <label style="color: var(--light-color-a)" for="username"
+              >Username</label
+            >
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Enter username..."
+              required
+            />
+          </div>
+          <div class="form-control">
+            <label style="color: var(--light-color-a)" for="password"
+              >Password</label
+            >
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter password..."
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn" value="login">Login</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
