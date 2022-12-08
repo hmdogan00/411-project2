@@ -1,6 +1,19 @@
+## Structure
+
+The project uses Express.js and PostgreSQL.
+
+User and Group info in the database can be found in the project root folder, inside ```data.js```
+
+Backend server (Express.js) can be found in the project root folder, inside ```server.js```
+
+Frontend functionalities can be found in the ```public``` folder.
+
+General utility functionalities are inside the ```utils``` folder.
+
+
 ## Prerequisites
 
-Only node and PostgreSQL is needed. You have to: 
+Node, yarn and PostgreSQL are needed to be installed on the local machine. You have to: 
 1. create a database called messages
 2. create a role in that database called 'me' with password 'password'
 3. give it write and read permissions
@@ -20,6 +33,7 @@ GRANT USAGE, SELECT ON messages_id_seq TO me;
 
 ## Running Instructions
 
+1. Run ```yarn``` to 
 1. Simply run: ``` node server.js ```
 2. Go to ```localhost:3000```
 3. Insert any of the users' id and password, which can be found in data.js, in the project root folder.
