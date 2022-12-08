@@ -10,19 +10,30 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/output.css" />
     <title>ChitChat App</title>
   </head>
   <body>
     <div class="chat-container">
-      <header class="chat-header" style="padding: 15px 15px 15px 60px">
-        <img src="img/logodark.jpeg" width="140px" height="auto" />
-        <a href="selectChannel.html" id="leave-btn" class="back-btn">Back</a>
+      <header class="chat-header flex-row" style="padding: 15px 15px 15px 60px">
+        <a class="basis-1/4 back-btn" href="selectChannel.html" id="leave-btn"
+          >Back</a
+        >
+        <div
+          class="chat-sidebar flex flex-row basis-1/2"
+          style="margin-left: 40px; margin-right: auto; gap: 35px"
+        ></div>
+        <img
+          class="basis-1/4 ml-auto"
+          src="img/logodark.jpeg"
+          width="140px"
+          height="auto"
+        />
       </header>
-      <main class="chat-main">
-        <div class="chat-sidebar"></div>
+      <main>
         <div class="chat-messages"></div>
       </main>
-      <div class="chat-form-container">
+      <div class="chat-form-container flex justify-space">
         <form id="chat-form">
           <input
             id="msg"

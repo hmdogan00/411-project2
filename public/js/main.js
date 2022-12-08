@@ -122,65 +122,76 @@ function outputMessage(message, isSelf = false) {
 
 function outputRoomName(room) {
   const [group, channel] = room.split("-");
+  const newDiv = document.createElement("div");
   const roomLabel = document.createElement("h3");
   const roomIcon = document.createElement("i");
   roomIcon.classList.add("fas", "fa-comments");
   roomLabel.appendChild(roomIcon);
   roomLabel.appendChild(document.createTextNode(" Group"));
-  sidebar.appendChild(roomLabel);
+  newDiv.appendChild(roomLabel);
 
   const roomName = document.createElement("h2");
   roomName.appendChild(document.createTextNode(group));
-  sidebar.appendChild(roomName);
+  newDiv.appendChild(roomName);
+  sidebar.appendChild(newDiv);
+
+  const newDiv2 = document.createElement("div");
 
   const channelLabel = document.createElement("h3");
   const channelIcon = document.createElement("i");
   channelIcon.classList.add("fas", "fa-hashtag");
   channelLabel.appendChild(channelIcon);
   channelLabel.appendChild(document.createTextNode(" Channel"));
-  sidebar.appendChild(channelLabel);
+  newDiv2.appendChild(channelLabel);
 
   const channelName = document.createElement("h2");
   channelName.appendChild(document.createTextNode(channel));
-  sidebar.appendChild(channelName);
+  newDiv2.appendChild(channelName);
+  sidebar.appendChild(newDiv2);
 }
 
 function outputDirectMessage(room) {
   const [user1, user2] = room.split("-");
+  const newDiv = document.createElement("div");
   const roomLabel = document.createElement("h3");
   const roomIcon = document.createElement("i");
   roomIcon.classList.add("fas", "fa-user");
   roomLabel.appendChild(roomIcon);
   roomLabel.appendChild(document.createTextNode(" Message to"));
-  sidebar.appendChild(roomLabel);
+  newDiv.appendChild(roomLabel);
 
   const roomName = document.createElement("h2");
   fetch("/me").then((res) =>
     res.text().then((res) => {
       if (res === user1) {
         roomName.appendChild(document.createTextNode(user2));
-        sidebar.appendChild(roomName);
+        newDiv.appendChild(roomName);
+        sidebar.appendChild(newDiv);
       } else {
         roomName.appendChild(document.createTextNode(user1));
-        sidebar.appendChild(roomName);
+        newDiv.appendChild(roomName);
+        sidebar.appendChild(newDiv);
       }
     })
   );
 }
 
 function outputUsers(users) {
+  const onlineDiv = document.createElement("div");
   const onlineLabel = document.createElement("h3");
   const onlineIcon = document.createElement("i");
   onlineIcon.classList.add("fas", "fa-users");
   onlineLabel.appendChild(onlineIcon);
   onlineLabel.appendChild(document.createTextNode(" Online"));
-  sidebar.appendChild(onlineLabel);
+  onlineDiv.appendChild(onlineLabel);
 
   const userList = document.createElement("ul");
   userList.innerHTML = `${users
     .map((user) => `<li>${user.username}</li>`)
     .join("")}`;
-  sidebar.appendChild(userList);
+
+  onlineDiv.appendChild(userList);
+  sidebar.appendChild(onlineDiv);
 }
 
 function generateKey() {

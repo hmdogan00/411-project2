@@ -45,7 +45,7 @@
           Select Chat
         </h1>
       </header>
-      <main class="join-main w-2/6">
+      <main class="join-main w-2/6" style="border-radius: 50px">
         <form action="/direct" method="POST">
           <div class="form-control">
             <label style="color: var(--light-color-a)" for="direct"
@@ -53,7 +53,9 @@
             >
             <select name="direct" id="direct"></select>
           </div>
-          <button type="submit" class="btn" value="DM">DM</button>
+          <button type="submit" class="btn" value="DM">
+            Send Direct Message
+          </button>
         </form>
         <br /><br />
         <form action="/chat" method="POST">
@@ -73,7 +75,9 @@
               <option value="#Project2">#Project2</option>
             </select>
           </div>
-          <button type="submit" class="btn" value="join">Join</button>
+          <button type="submit" class="btn" value="join">
+            Send Message to Channel
+          </button>
         </form>
       </main>
     </div>

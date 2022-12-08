@@ -33,12 +33,17 @@ a {
   text-decoration: none;
 }
 
+select {
+  border-radius: 12px;
+}
+
 .btn {
   cursor: pointer;
   padding: 5px 15px;
   background: var(--light-color-a);
   color: var(--light-color);
   border: 0;
+  border-radius: 20px;
   font-size: 17px;
 }
 
@@ -59,6 +64,7 @@ a {
   background: #fff;
   margin: 30px auto;
   overflow: hidden;
+  border-radius: 50px;
 }
 
 .chat-header {
@@ -102,6 +108,7 @@ a {
 .chat-messages {
   padding: 30px;
   max-height: 500px;
+  min-height: 300px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -158,10 +165,6 @@ a {
 .chat-form-container {
   padding: 20px 30px;
   background-color: var(--dark-color-a);
-}
-
-.chat-form-container form {
-  display: flex;
 }
 
 .chat-form-container input[type="text"] {
