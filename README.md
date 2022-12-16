@@ -33,7 +33,7 @@ GRANT USAGE, SELECT ON messages_id_seq TO me;
 
 ## Running Instructions
 
-1. Run ```yarn``` to 
+1. Run ```yarn``` to download necessary libraries
 1. Simply run: ``` node server.js ```
 2. Go to ```localhost:3000```
 3. Insert any of the users' id and password, which can be found in data.js, in the project root folder.
